@@ -24,15 +24,18 @@ struct BackgroundView: View {
 }
 
 struct RingsView: View {
+    @Environment(\.colorScheme) var colourScheme
+    
     var body: some View {
         ZStack {
             Color("BackgroundColour")
                 .edgesIgnoringSafeArea(.all)
             ForEach(1..<6) { ring in
                 let size = CGFloat(ring * 100)
+                let opacity = colourScheme == .dark ? 0.1 : 0.3
                 Circle()
                     .stroke(lineWidth: 20.0)
-                    .fill(RadialGradient(colors: [Color("RingColour").opacity(0.3 * 0.8), Color("RingColour").opacity(0)], center: .center, startRadius: 100, endRadius: 300))
+                    .fill(RadialGradient(colors: [Color("RingColour").opacity(opacity), Color("RingColour").opacity(0)], center: .center, startRadius: 100, endRadius: 300))
                     .frame(width: size, height: size)
             }
         }
@@ -44,7 +47,12 @@ struct TopView: View {
     
     var body: some View {
         HStack {
-            RoundedImageViewStroked(systemName: "arrow.counterclockwise")
+            Button(action: {
+                game.restart()
+            }) {
+                RoundedImageViewStroked(systemName: "arrow.counterclockwise")
+            }
+            
             Spacer()
             RoundedImageViewFilled(systemName: "arrow.counterclockwise")
         }
