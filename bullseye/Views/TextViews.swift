@@ -66,14 +66,48 @@ struct LabelText: View {
     }
 }
 
+struct AlertBodyText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.subheadline)
+            .fontWeight(.semibold)
+            .foregroundColor(Color("TextColour"))
+            .multilineTextAlignment(.center)
+            .lineSpacing(12.0)
+    }
+}
+
+struct AlertButtonLabelText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .bold()
+            .font(.caption)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.accentColor)
+            .foregroundColor(Color.white)
+            .cornerRadius(12.0)
+    }
+}
+
+
+
+
 struct TextViews_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             InstructionText(text: "Instructions")
             BigNumberText(text: "Big Number Text")
-            SliderLabelText(text: "Slider Label Text")
+            SliderLabelText(text: "999")
             ButtonLabelText(text: "Button Label Text")
             LabelText(text: "Label Text")
+            AlertBodyText(text: "Alert Body Text")
+            AlertButtonLabelText(text: "Alert Button Label Text")
+            
         }
     }
 }

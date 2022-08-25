@@ -13,9 +13,9 @@ var systemName: String
         Image(systemName: systemName)
             .font(.title)
             .foregroundColor(Color("TextColour"))
-            .frame(width: 56.0, height: 56.0)
+            .frame(width: Constants.General.roundViewLength, height: Constants.General.roundViewLength)
             .overlay(Circle()
-                .strokeBorder(Color("ButtonStrokeColour"), lineWidth: 2.0))
+                .strokeBorder(Color("ButtonStrokeColour"), lineWidth: Constants.General.strokeWidth))
     }
 }
 
@@ -25,7 +25,7 @@ var systemName: String
         Image(systemName: systemName)
             .font(.title)
             .foregroundColor(Color("ButtonFilledTextColour"))
-            .frame(width: 56.0, height: 56.0)
+            .frame(width: Constants.General.roundViewLength, height: Constants.General.roundViewLength)
             .background(Circle()
                 .fill(Color("ButtonFilledBackgroundColour")))
     }
@@ -39,17 +39,17 @@ struct RoundedRectTextView: View {
             .kerning(-0.2)
             .bold()
             .font(.title3)
-            .frame(width: 68.0, height: 56.0)
+            .frame(width: Constants.General.roundRectViewWidth, height: Constants.General.roundRectViewHeight)
             .foregroundColor(Color("TextColour"))
-            .overlay(RoundedRectangle(cornerRadius: 21.0)
-                .stroke(lineWidth: 2.0)
+            .overlay(RoundedRectangle(cornerRadius: Constants.General.roundedRectCornerRadius)
+                .stroke(lineWidth: Constants.General.strokeWidth)
                 .foregroundColor(Color("ButtonStrokeColour")))
     }
 }
 
 struct PreviewView: View {
     var body: some View {
-        VStack (spacing: 10.0) {
+        VStack (spacing: Constants.General.vstackSpacing) {
             RoundedImageViewStroked(systemName: "arrow.counterclockwise")
             RoundedImageViewFilled(systemName: "arrow.counterclockwise")
             RoundedRectTextView(text: "100")

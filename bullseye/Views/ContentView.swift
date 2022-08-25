@@ -17,10 +17,19 @@ struct ContentView: View {
             BackgroundView(game: $game)
             VStack {
                 InstructionView(game: $game)
-                    .padding(.bottom, 100)
-                HitMeButtonView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                    .padding(.bottom, alertIsVisible ? 0 : 100)
+                if alertIsVisible {
+                    PointsView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                        .transition(.scale)
+                } else {
+                    HitMeButtonView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                        .transition(.scale)
+                }
             }
-            SliderView(sliderValue: $sliderValue)
+            if !alertIsVisible {
+                SliderView(sliderValue: $sliderValue)
+                    .transition(.scale)
+            }
         }
     }
 }
@@ -56,7 +65,9 @@ struct HitMeButtonView: View {
 
     var body: some View {
         Button(action: {
-            alertIsVisible = true
+            withAnimation {
+                alertIsVisible = true
+            }
         }) {
             ButtonLabelText(text: "Hit Me")
         }
@@ -66,24 +77,19 @@ struct HitMeButtonView: View {
             LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
         })
         .foregroundColor(.white)
-        .cornerRadius(21.0)
-        .overlay(RoundedRectangle(cornerRadius: 21.0).strokeBorder(Color.white, lineWidth: 2.0))
-        .alert(isPresented: $alertIsVisible, content: {
-            let roundedValue = Int(sliderValue.rounded())
-            let points = game.points(sliderValue: roundedValue)
-            return Alert(title: Text("Hello There!"), message: Text("the slider's value is \(roundedValue).\n" + "You scored \(points)"), dismissButton: .default(Text("Awesome")) {
-                game.startNewRound(points: points)
-            })
-        })
+        .cornerRadius(Constants.General.roundedRectCornerRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Constants.General.roundedRectCornerRadius).strokeBorder(Color.white, lineWidth: Constants.General.strokeWidth)
+            )
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        ContentView().previewLayout(.fixed(width: 568, height: 320))
+        ContentView().previewLayout(.fixed(width: Constants.DeviceSetup.Landscape.width, height: Constants.DeviceSetup.Landscape.height))
         ContentView()
             .preferredColorScheme(.dark)
-        ContentView().preferredColorScheme(.dark).previewLayout(.fixed(width: 568, height: 320))
+        ContentView().preferredColorScheme(.dark).previewLayout(.fixed(width: Constants.DeviceSetup.Landscape.width, height: Constants.DeviceSetup.Landscape.height))
     }
 }
