@@ -7,6 +7,19 @@
 
 import SwiftUI
 
+struct ScreenTitleText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text.uppercased())
+            .kerning(2.0)
+            .font(.title)
+            .fontWeight(.black)
+            .foregroundColor(Color("TextColour"))
+    }
+}
+
+
 struct InstructionText: View {
     var text: String
     
@@ -94,12 +107,36 @@ struct AlertButtonLabelText: View {
     }
 }
 
+struct LeaderboardScoreText: View {
+    var score: Int
+    
+    var body: some View {
+        Text(String(score))
+            .bold()
+            .kerning(-0.2)
+            .foregroundColor(Color("TextColour"))
+            .font(.title3)
+    }
+}
+
+struct LeaderboardDateText: View {
+    var date: Date
+    
+    var body: some View {
+        Text(date, style: .time)
+            .bold()
+            .kerning(-0.2)
+            .foregroundColor(Color("TextColour"))
+            .font(.title3)
+    }
+}
 
 
 
 struct TextViews_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
+            ScreenTitleText(text: "Screen Title Text")
             InstructionText(text: "Instructions")
             BigNumberText(text: "Big Number Text")
             SliderLabelText(text: "999")
@@ -107,7 +144,8 @@ struct TextViews_Previews: PreviewProvider {
             LabelText(text: "Label Text")
             AlertBodyText(text: "Alert Body Text")
             AlertButtonLabelText(text: "Alert Button Label Text")
-            
+            LeaderboardScoreText(score: 100)
+            LeaderboardDateText(date: Date())
         }
     }
 }
