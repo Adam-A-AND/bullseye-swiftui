@@ -44,6 +44,7 @@ struct RingsView: View {
 
 struct TopView: View {
     @Binding var game: Game
+    @State private var leaderboardIsShowing = false
     
     var body: some View {
         HStack {
@@ -54,7 +55,11 @@ struct TopView: View {
             }
             
             Spacer()
-            RoundedImageViewFilled(systemName: "arrow.counterclockwise")
+            Button(action: {
+                leaderboardIsShowing = true
+            }) {
+                RoundedImageViewFilled(systemName: "list.dash")
+            }.sheet(isPresented: $leaderboardIsShowing, onDismiss: {}, content: { LeaderboardView(leaderboardIsShowing: $leaderboardIsShowing, game: $game) } )
         }
     }
 }
