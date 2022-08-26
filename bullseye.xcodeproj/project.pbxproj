@@ -18,6 +18,7 @@
 		3895B4F728B788E5005B3D08 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895B4F628B788E5005B3D08 /* BackgroundView.swift */; };
 		3895B4F928B7C00D005B3D08 /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895B4F828B7C00D005B3D08 /* PointsView.swift */; };
 		3895B4FB28B7C5C4005B3D08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895B4FA28B7C5C4005B3D08 /* Constants.swift */; };
+		3895B4FD28B8B539005B3D08 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895B4FC28B8B539005B3D08 /* LeaderboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3895B4CF28B52CE7005B3D08 /* bullseye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bullseye.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3895B4CF28B52CE7005B3D08 /* Bull's Eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bull's Eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3895B4D228B52CE7005B3D08 /* bullseyeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bullseyeApp.swift; sourceTree = "<group>"; };
 		3895B4D428B52CE7005B3D08 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3895B4D628B52CE9005B3D08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		3895B4F628B788E5005B3D08 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		3895B4F828B7C00D005B3D08 /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
 		3895B4FA28B7C5C4005B3D08 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3895B4FC28B8B539005B3D08 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +78,7 @@
 		3895B4D028B52CE7005B3D08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3895B4CF28B52CE7005B3D08 /* bullseye.app */,
+				3895B4CF28B52CE7005B3D08 /* Bull's Eye.app */,
 				3895B4E928B763E7005B3D08 /* bullseyeTests.xctest */,
 			);
 			name = Products;
@@ -118,6 +120,7 @@
 				3895B4F428B785EA005B3D08 /* RoundViews.swift */,
 				3895B4F628B788E5005B3D08 /* BackgroundView.swift */,
 				3895B4F828B7C00D005B3D08 /* PointsView.swift */,
+				3895B4FC28B8B539005B3D08 /* LeaderboardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -156,7 +159,7 @@
 			);
 			name = bullseye;
 			productName = bullseye;
-			productReference = 3895B4CF28B52CE7005B3D08 /* bullseye.app */;
+			productReference = 3895B4CF28B52CE7005B3D08 /* Bull's Eye.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3895B4E828B763E7005B3D08 /* bullseyeTests */ = {
@@ -243,6 +246,7 @@
 				3895B4F528B785EA005B3D08 /* RoundViews.swift in Sources */,
 				3895B4D528B52CE7005B3D08 /* ContentView.swift in Sources */,
 				3895B4FB28B7C5C4005B3D08 /* Constants.swift in Sources */,
+				3895B4FD28B8B539005B3D08 /* LeaderboardView.swift in Sources */,
 				3895B4F328B7741A005B3D08 /* TextViews.swift in Sources */,
 				3895B4F928B7C00D005B3D08 /* PointsView.swift in Sources */,
 				3895B4E428B7612A005B3D08 /* Game.swift in Sources */,
@@ -405,7 +409,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.armstrong.adam.bullseye;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bull's Eye";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -434,7 +438,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.armstrong.adam.bullseye;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bull's Eye";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
